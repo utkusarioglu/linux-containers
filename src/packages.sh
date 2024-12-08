@@ -1,8 +1,10 @@
-export DEBIAN_FRONTEND=noninteractive
+set -e
+
+# DEBIAN_FRONTEND=noninteractive
 
 apt-get update
 apt-get upgrade
-apt-get install \
+apt-get install -y \
   git \
   jq \
   htop \
