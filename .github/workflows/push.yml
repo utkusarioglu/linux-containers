@@ -1,0 +1,17 @@
+name: Push action
+
+on: 
+  push
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.wfc.yml
+    with:
+      yq_version: 
+      nvim_version:
+      username: 
+      group: 
+    secrets:
+      root_pass: ${{ secrets.DOCKER_IMAGE_ROOT_PASS }}
+      dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
