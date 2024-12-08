@@ -31,9 +31,12 @@ mkdir -p $nvim_path
 tar -xzvf nvim.tar.gz
 mv ./nvim-linux64/bin/nvim $nvim_path/nvim
 rm -rf nvim_gz_path ./nvim-linux64
-# chmod +x $nvim_path/nvim
+echo 'Nvim version:'
 nvim --version
 
 # VScode folders that need to exist
 mkdir -p $HOME/.vscode-server/extensions
 mkdir -p $HOME/.vscode-server-insiders/extensions
+
+# Required for boostrap scripts
+mkdir /bootstrap

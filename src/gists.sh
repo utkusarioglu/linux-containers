@@ -2,6 +2,7 @@ set -e
 
 wget -O /bootstrap/create-env-example.sh \
   https://gist.githubusercontent.com/utkusarioglu/2d4be44dc7707afccd540ad99ba385e6/raw/create-env-example.sh
+chmod +x /bootstrap/create-env-example.sh
 
 wget -O $HOME/.bashrc \
   https://gist.githubusercontent.com/utkusarioglu/3523b00578807d63b05399fe57a4b2a7/raw/.bashrc
