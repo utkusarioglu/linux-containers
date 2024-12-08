@@ -1,7 +1,7 @@
 set -e
 
-yq_version=${1:?'Yq version not set'}
-nvim_version=${2:?'Nvim version not set'}
+yq_version="${1:?'Yq version not set'}"
+nvim_version="${2:?'Nvim version not set'}"
 
 # DEBIAN_FRONTEND=noninteractive
 

@@ -9,7 +9,7 @@ FROM ubuntu:${OS_TAG}
 # RUN echo "root:$ROOT_PASS" | chpasswd
 
 COPY packages.sh /bootstrap/
-RUN sh -c "/bootstrap/packages.sh ${YQ_VERSION} ${NVIM_VERSION}"
+RUN /bootstrap/packages.sh ${YQ_VERSION} ${NVIM_VERSION}
 
 USER ${USERNAME}
 
