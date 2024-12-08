@@ -1,5 +1,8 @@
 set -e
 
+yq_version=${1:?'Yq version not set'}
+nvim_version=${2:?'Nvim version not set'}
+
 # DEBIAN_FRONTEND=noninteractive
 
 apt-get update
@@ -11,16 +14,16 @@ apt-get install -y \
   wget
 
 # Yq requires manual retrieval of the package
-echo "Installing yq:$YQ_VERSION…"
+echo "Installing yq:$yq_version…"
 wget \
-  https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_amd64 \
+  https://github.com/mikefarah/yq/releases/download/$yq_version/yq_linux_amd64 \
   -O /usr/bin/yq && \
   chmod +x /usr/bin/yq
 
 # Neovim requires manual retrieval of the latest version
 # as the apt package is quite old
-echo "Installing neovim:$NVIM_VERSION…"
-wget https://github.com/neovim/neovim/releases/download/$NVIM_VERSION/nvim-linux64.deb \
+echo "Installing neovim:$nvim_version…"
+wget https://github.com/neovim/neovim/releases/download/$nvim_version/nvim-linux64.deb \
   -O /neovim.deb
 apt install -y /neovim.deb 
 rm /neovim.deb
