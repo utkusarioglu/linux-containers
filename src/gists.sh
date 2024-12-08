@@ -12,5 +12,5 @@ wget -O $HOME/.inputrc \
 
 # Elam
 elam_path=$HOME/elam
-git clone ---depth 1 https://github.com/utkusarioglu/elam.git $elam_path
+git clone --depth 1 https://github.com/utkusarioglu/elam.git $elam_path
 echo "alias elam=$elam_path/elam.sh" >> $HOME/.bash_aliases
