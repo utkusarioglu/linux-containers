@@ -32,7 +32,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: noble
+        os: 
+          - noble
     steps:
       - uses: actions/checkout@v4
         with:
