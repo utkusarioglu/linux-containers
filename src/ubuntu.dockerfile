@@ -7,9 +7,8 @@ ARG NVIM_VERSION
 ARG USERNAME
 ARG GROUP
 ARG ROOT_PASS
-# RUN echo "root:$ROOT_PASS" | chpasswd
 
-RUN "YQ_VERSION: $YQ_VERSION"
+RUN echo "root:$ROOT_PASS" | chpasswd
 
 COPY packages.sh /bootstrap/
 RUN /bootstrap/packages.sh ${YQ_VERSION} ${NVIM_VERSION}
