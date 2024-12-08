@@ -5,10 +5,11 @@ ARG USERNAME
 ARG GROUP
 ARG ROOT_PASS
 
-RUN "YQ_VERSION: $YQ_VERSION"
 
 FROM ubuntu:${OS_TAG}
 # RUN echo "root:$ROOT_PASS" | chpasswd
+
+RUN "YQ_VERSION: $YQ_VERSION"
 
 COPY packages.sh /bootstrap/
 RUN /bootstrap/packages.sh ${YQ_VERSION} ${NVIM_VERSION}
