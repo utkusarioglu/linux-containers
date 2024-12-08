@@ -28,6 +28,7 @@ wget https://github.com/neovim/neovim/releases/download/$nvim_version/nvim-linux
 mkdir -p /usr/bin/nvim
 tar -xzvf nvim.tar.gz -C /usr/bin/nvim
 rm nvim.tar.gz
+nvim --version
 
 # VScode folders that need to exist
 mkdir -p $HOME/.vscode-server/extensions
