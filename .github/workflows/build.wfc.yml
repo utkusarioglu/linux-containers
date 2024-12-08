@@ -49,11 +49,11 @@ jobs:
           tags: utkusarioglu/bash-devcontainer:latest
           file: src/ubuntu.dockerfile
           context: src
-          build-args:
-            OS_TAG: "${{ inputs.os_tag }}
-            YQ_VERSION: ${{ inputs.yq_version }}
-            NVIM_VERSION: ${{ inputs.nvim_version }}
-            USERNAME: ${{ inputs.username }}
-            GROUP: ${{ inputs.group }}
-            ROOT_PASS: ${{ secrets.root_pass }}
+          build-args: |
+            OS_TAG=${{ inputs.os_tag }}
+            YQ_VERSION=${{ inputs.yq_version }}
+            NVIM_VERSION=${{ inputs.nvim_version }}
+            USERNAME=${{ inputs.username }}
+            GROUP=${{ inputs.group }}
+            ROOT_PASS=${{ secrets.root_pass }}
         
