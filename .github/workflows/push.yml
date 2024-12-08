@@ -8,9 +8,9 @@ jobs:
     uses: ./.github/workflows/build.wfc.yml
     with:
       yq_version: v4.44.6
-      nvim_version: 0.10.2
-      username: 1000
-      group: 1000
+      nvim_version: "0.10.2"
+      username: "1000"
+      group: "1000"
     secrets:
       root_pass: "${{ secrets.DOCKER_IMAGE_ROOT_PASS }}"
       dockerhub_username: "${{ secrets.DOCKERHUB_USERNAME }}"
