@@ -3,6 +3,9 @@
 on:
   workflow_call:
     inputs: 
+      # os_tag:
+      #   type: string
+      #   required: true
       yq_version: 
         type: string
         required: true
@@ -50,7 +53,7 @@ jobs:
           file: src/ubuntu.dockerfile
           context: src
           build-args: |
-            OS_TAG=${{ inputs.os_tag }}
+            OS_TAG=${{ matrix.os_tag }}
             YQ_VERSION=${{ inputs.yq_version }}
             NVIM_VERSION=${{ inputs.nvim_version }}
             USERNAME=${{ inputs.username }}
