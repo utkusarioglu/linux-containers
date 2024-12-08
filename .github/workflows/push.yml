@@ -12,6 +12,6 @@ jobs:
       username: 1000
       group: 1000
     secrets:
-      root_pass: ${{ secrets.DOCKER_IMAGE_ROOT_PASS }}
-      dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
-      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+      root_pass: "${{ secrets.DOCKER_IMAGE_ROOT_PASS }}"
+      dockerhub_username: "${{ secrets.DOCKERHUB_USERNAME }}"
+      dockerhub_token: "${{ secrets.DOCKERHUB_TOKEN }}"
