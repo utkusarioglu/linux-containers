@@ -6,7 +6,7 @@ ARG GROUP
 ARG ROOT_PASS
 
 FROM ubuntu:${OS_TAG}
-RUN echo "root:$ROOT_PASS" | chpasswd
+# RUN echo "root:$ROOT_PASS" | chpasswd
 
 COPY packages.sh /bootstrap/
 RUN /bootstrap/packages.sh
