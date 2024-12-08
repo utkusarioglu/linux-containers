@@ -4,26 +4,26 @@ on:
   workflow_call:
     inputs: 
       yq_version: 
-         # type: string
+        type: string
         required: true
       nvim_version:
-         # type: string
+        type: string
         required: true
       username: 
-         # type: string
+        type: string
         required: true
       group: 
-         # type: string
+        type: string
         required: true
     secrets:
       root_pass:
-         # type: string
+        # type: string
         required: true
       dockerhub_username: 
-         # type: string
+        # type: string
         required: true
       dockerhub_token: 
-         # type: string
+        # type: string
         required: true
   
 jobs:
