@@ -37,6 +37,3 @@ nvim --version
 # VScode folders that need to exist
 mkdir -p $HOME/.vscode-server/extensions
 mkdir -p $HOME/.vscode-server-insiders/extensions
-
-# Required for boostrap scripts
-mkdir /bootstrap
