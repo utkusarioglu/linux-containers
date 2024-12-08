@@ -24,12 +24,14 @@ wget \
 # as the apt package is quite old
 echo "Installing neovim:$nvim_version…"
 nvim_path=/usr/bin
+nvim_gz_path=./nvim.tar.gz
 wget https://github.com/neovim/neovim/releases/download/$nvim_version/nvim-linux64.tar.gz \
-  -O nvim.tar.gz
+  -O $nvim_gz_path
 mkdir -p $nvim_path
-tar -xzvf nvim.tar.gz -C $nvim_path
-rm nvim.tar.gz
-chmod +x $nvim_path/nvim
+tar -xzvf nvim.tar.gz
+mv ./nvim-linux64/bin/nvim $nvim_path/nvim
+rm -rf nvim_gz_path ./nvim-linux64
+# chmod +x $nvim_path/nvim
 nvim --version
 
 # VScode folders that need to exist
