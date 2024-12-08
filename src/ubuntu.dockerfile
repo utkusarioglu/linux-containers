@@ -7,15 +7,16 @@ ARG NVIM_VERSION
 ARG USERNAME
 ARG GROUP
 ARG ROOT_PASS
+ARG BOOTSTRAP_PATH
 
 RUN echo "root:$ROOT_PASS" | chpasswd
 
-COPY packages.sh /bootstrap/
-RUN /bootstrap/packages.sh ${YQ_VERSION} ${NVIM_VERSION}
+COPY packages.sh ${BOOTSTRAP_PATH}
+RUN ${BOOTSTRAP_PATH}/packages.sh ${YQ_VERSION} ${NVIM_VERSION}
 
 USER ${USERNAME}
 
-COPY gists.sh /bootstrap/
-RUN /bootstrap/gists.sh
+COPY gists.sh ${BOOTSTRAP_PATH}
+RUN ${BOOTSTRAP_PATH}/gists.sh
 
 ENV EDITOR=nvim

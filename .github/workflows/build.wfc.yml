@@ -48,7 +48,7 @@ jobs:
           password: ${{ secrets.dockerhub_token }}
       - uses: docker/build-push-action@v5
         with:
-          push: false
+          push: true
           tags: utkusarioglu/bash-devcontainer:latest
           file: src/ubuntu.dockerfile
           context: src
@@ -59,4 +59,5 @@ jobs:
             USERNAME=${{ inputs.username }}
             GROUP=${{ inputs.group }}
             ROOT_PASS=${{ secrets.root_pass }}
+            BOOTSTRAP_PATH=${{ inputs.bootstrap_path }}
         
