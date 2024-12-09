@@ -4,14 +4,15 @@ set -eux
 
 ARGS=(
   home_abspath
+  # scripts_abspath
 )
 
 . args.sh
 
 base=https://gist.githubusercontent.com/utkusarioglu
-scripts_abspath=${home_abspath}/scripts
+# scripts_abspath=${home_abspath}/scripts
 
-mkdir ${scripts_abspath}
+# mkdir -p ${scripts_abspath}
 
 # # Create env example
 # wget -O ${scripts_abspath}/create-env-example.sh \
