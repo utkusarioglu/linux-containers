@@ -8,7 +8,7 @@ set -eux
 ARGS=(
   yq_version
   nvim_version
-  home_path
+  home_abspath
 )
 
 . args.sh
@@ -46,5 +46,5 @@ echo 'Nvim version:'
 nvim --version
 
 # VScode folders that need to exist
-mkdir -p $HOME/.vscode-server/extensions
-mkdir -p $HOME/.vscode-server-insiders/extensions
+mkdir -p ${home_abspath}/.vscode-server/extensions
+mkdir -p ${home_abspath}/.vscode-server-insiders/extensions

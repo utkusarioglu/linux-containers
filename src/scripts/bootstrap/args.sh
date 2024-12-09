@@ -3,6 +3,8 @@
 arg_count=${#ARGS[@]}
 param_count=$#
 
+echo "ARGS: ${ARGS[@]}"
+
 if [ $param_count -gt $arg_count ]; then
   echo "Error: script given ${param_count} params while it only needs ${arg_count}"
   exit 2
