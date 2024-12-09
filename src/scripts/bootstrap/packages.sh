@@ -7,6 +7,8 @@ set -eux
 bash --version
 
 ARGS=(
+  user_id
+  group_id
   yq_version
   nvim_version
   home_abspath
@@ -25,6 +27,10 @@ versioned_packages=(
 apt-get update
 apt-get upgrade -y
 apt-get install -y ${versioned_packages[*]}
+apt-get clean
+apt-get autoremove --purge
+du -sh /var/cache/apt /var/lib/apt/lists
+rm -rf /var/log/apt/*
 
 for p in ${versioned_packages[@]}; do
   $p --version
@@ -53,7 +59,10 @@ ls -al
 nvim --version
 
 # VScode folders that need to exist
-mkdir -p ${home_abspath}/.vscode-server/extensions
-mkdir -p ${home_abspath}/.vscode-server-insiders/extensions
+for suffix in "" "-insiders"; do
+  abspath=${home_abspath}/.vscode-server${suffix}/extensions
+  mkdir -p $abspath
+  chown ${user_id}:${group_id} $abspath
+done
 
 ls -al ${home_abspath}

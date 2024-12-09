@@ -14,10 +14,12 @@ ARG HOME_ABSPATH=/home/${USERNAME}
 ARG SCRIPTS_ABSPATH=${HOME_ABSPATH}/scripts
 ARG BOOTSTRAP_ABSPATH=${SCRIPTS_ABSPATH}/bootstrap
 
-WORKDIR ${BOOTSTRAP_ABSPATH}
+WORKDIR ${SCRIPTS_ABSPATH}
 
-COPY scripts/bootstrap/*.sh .
+COPY scripts/* .
 RUN ls -al
+
+WORKDIR ${HOME_ABSPATH}
 
 RUN ${BOOTSTRAP_ABSPATH}/users.sh \
   ${ROOT_PASS} \
@@ -28,6 +30,8 @@ RUN ${BOOTSTRAP_ABSPATH}/users.sh \
   ${HOME_ABSPATH}
 
 RUN ${BOOTSTRAP_ABSPATH}/packages.sh \
+  ${USER_ID} \
+  ${GROUP_ID} \
   ${YQ_VERSION} \
   ${NVIM_VERSION} \
   ${HOME_ABSPATH}
@@ -36,10 +40,8 @@ USER ${USERNAME}
 
 RUN ${BOOTSTRAP_ABSPATH}/gists.sh ${HOME_ABSPATH}
 
-WORKDIR ${HOME_ABSPATH}
-COPY configs/nvim/init.vim ./.config/nvim/
-COPY configs/bash/* ${HOME_ABSPATH}
-COPY scripts/handy/* ${SCRIPTS_ABSPATH}/
+COPY home/* .
+RUN chown -R ${USER_ID}:${GROUP_ID} ${HOME_ABSPATH}/*
 
 ENV EDITOR=nvim
 ENTRYPOINT ["bash"]
