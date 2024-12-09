@@ -14,7 +14,7 @@ ARGS=(
   home_abspath
 )
 
-. args.sh
+. ${0%/*}/args.sh
 
 versioned_packages=(
   git 

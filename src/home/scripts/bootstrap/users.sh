@@ -18,7 +18,7 @@ ARGS=(
 # user_id=${4:?'User ID required as param #4'}
 # group_id=${5:?'Group ID required as param #5'}
 
-. args.sh
+. ${0%/*}/args.sh
 
 default_user=ubuntu
 default_group=ubuntu

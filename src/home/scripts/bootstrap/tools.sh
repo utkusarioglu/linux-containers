@@ -6,7 +6,7 @@ ARGS=(
   home_abspath
 )
 
-. args.sh
+. ${0%/*}/args.sh
 
 # Elam
 elam_path=${home_abspath}/elam

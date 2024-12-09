@@ -11,7 +11,7 @@ ARGS=(
   home_abspath
 )
 
-. args.sh
+. ${0%/*}/args.sh
 
 chown -R ${user_id}:${group_id} ${home_abspath}/*
 
