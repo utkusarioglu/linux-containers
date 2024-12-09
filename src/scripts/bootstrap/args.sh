@@ -1,3 +1,5 @@
+#!/bin/bash
+
 arg_count=${#ARGS[@]}
 param_count=$#
 
