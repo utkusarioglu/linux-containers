@@ -9,7 +9,7 @@ ARG USER_ID
 ARG GROUP_ID
 ARG ROOT_PASS
 
-WORKDIR ${HOME}/bootstrap
+WORKDIR /bootstrap
 
 COPY scripts/bootstrap/*.sh .
 RUN ls -al
