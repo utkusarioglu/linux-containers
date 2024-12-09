@@ -16,7 +16,7 @@ ARG BOOTSTRAP_ABSPATH=${SCRIPTS_ABSPATH}/bootstrap
 
 WORKDIR ${HOME_ABSPATH}
 
-COPY home/* .
+COPY home .
 
 RUN ls -al ${HOME_ABSPATH}
 
