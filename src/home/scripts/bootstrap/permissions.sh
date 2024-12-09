@@ -1,11 +1,9 @@
 #!/bin/bash
 
-set -eux
-
 # @purpose
 # Adjusts permissions
 
-ls -alR ${home_abspath}
+set -eux
 
 ARGS=(
   user_id
@@ -14,6 +12,8 @@ ARGS=(
 )
 
 . ${0%/*}/args.sh
+
+ls -alR ${home_abspath}
 
 chown -R ${user_id}:${group_id} ${home_abspath}/*
 
