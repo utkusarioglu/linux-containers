@@ -39,4 +39,4 @@ WORKDIR ${HOME_ABSPATH}
 COPY configs/nvim/init.vim ./.config/nvim/
 
 ENV EDITOR=nvim
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c"]
