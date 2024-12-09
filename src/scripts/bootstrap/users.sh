@@ -9,7 +9,7 @@ ARGS=(
   group_name
   user_id
   group_id
-  home_path
+  home_abspath
 )
 # root_pass=${1:?'Root pass required as param #1'}
 # username=${2:?'Username required as param #2'}
@@ -21,7 +21,7 @@ ARGS=(
 
 default_user=ubuntu
 default_group=ubuntu
-# home_path="/home/${username}"
+# home_abspath="/home/${username}"
 
 getent group
 getent passwd
@@ -34,8 +34,8 @@ groupdel ${default_group} || true
 groupadd -g ${group_id} ${group_name}
 
 useradd -m -u ${user_id} -g ${group_id} -s /bin/bash ${username}
-mkdir -p ${home_path}
-chown -R ${user_id}:${group_id} ${home_path}
+mkdir -p ${home_abspath}
+chown -R ${user_id}:${group_id} ${home_abspath}
 
 # mv /home/${default_user} /home/${username}
 # usermod -l ${username} ${default_user}

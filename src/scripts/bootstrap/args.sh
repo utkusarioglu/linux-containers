@@ -12,7 +12,7 @@ fi
 
 counter=0
 for v in ${ARGS[@]}; do
-  ((counter++))
+  counter=(( counter + 1 ))
   err="'$v' has to be param #${counter}"
   declare "$v=${1:?$err}"
   shift
