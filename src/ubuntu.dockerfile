@@ -11,7 +11,7 @@ ARG ROOT_PASS
 
 WORKDIR ${HOME}/bootstrap
 
-COPY bootstrap-scripts/*.sh .
+COPY scripts/bootstrap/*.sh .
 
 RUN users.sh ${ROOT_PASS} ${USERNAME}
 RUN packages.sh ${YQ_VERSION} ${NVIM_VERSION}
