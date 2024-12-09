@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eux
+
 # @purpose
 # Adjusts permissions
 

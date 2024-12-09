@@ -49,11 +49,11 @@ echo "Installing neovim:$nvim_version…"
 nvim_path=/usr/bin
 nvim_gz_path=./nvim.tar.gz
 wget https://github.com/neovim/neovim/releases/download/$nvim_version/nvim-linux64.tar.gz \
-  -O $nvim_gz_path
-mkdir -p $nvim_path
+  -O ${nvim_gz_path}
+mkdir -p ${nvim_path}
 tar -xzvf nvim.tar.gz
 mv ./nvim-linux64/bin/nvim $nvim_path/nvim
-rm -rf nvim_gz_path ./nvim-linux64
+rm -rf ${nvim_gz_path} ./nvim-linux64
 echo 'Following path should be clear of nvim files:'
 ls -al
 nvim --version
