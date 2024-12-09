@@ -1,3 +1,4 @@
+#!/bin/bash
 # This script requires a privileged user
 
 set -eux

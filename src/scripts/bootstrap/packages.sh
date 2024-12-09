@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# @purpose
+# Installs packages from apt and manual sources
+
 set -eux
 
 ARGS=(
