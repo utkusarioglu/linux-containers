@@ -1,7 +1,12 @@
 set -eux
 
-yq_version="${1:?'Yq version not set'}"
-nvim_version="${2:?'Nvim version not set'}"
+ARGS=(
+  yq_version
+  nvim_version
+  home_path
+)
+
+. args.sh
 
 apt-get update
 apt-get upgrade
