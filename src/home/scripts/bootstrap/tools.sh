@@ -4,7 +4,6 @@ set -eux
 
 ARGS=(
   home_abspath
-  # scripts_abspath
 )
 
 . args.sh
