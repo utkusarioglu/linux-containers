@@ -17,6 +17,9 @@ ARG BOOTSTRAP_ABSPATH=${SCRIPTS_ABSPATH}/bootstrap
 WORKDIR ${HOME_ABSPATH}
 
 COPY home/* .
+
+RUN ls -al ${HOME_ABSPATH}
+
 RUN ${BOOTSTRAP_ABSPATH}/permissions.sh \
   ${USER_ID} \
   ${GROUP_ID} \

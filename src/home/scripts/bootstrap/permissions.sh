@@ -3,6 +3,8 @@
 # @purpose
 # Adjusts permissions
 
+ls -alR ${home_abspath}
+
 ARGS=(
   user_id
   group_id
