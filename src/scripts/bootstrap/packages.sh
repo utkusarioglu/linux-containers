@@ -4,6 +4,7 @@
 # Installs packages from apt and manual sources
 
 set -eux
+bash --version
 
 ARGS=(
   yq_version
@@ -13,14 +14,21 @@ ARGS=(
 
 . args.sh
 
+versioned_packages=(
+  git 
+  jq 
+  htop 
+  wget 
+  tree
+)
+
 apt-get update
 apt-get upgrade
-apt-get install -y \
-  git \
-  jq \
-  htop \
-  wget \
-  tree
+apt-get install -y ${versioned_packages[*]}
+
+for p in ${versioned_packages[@]}; do
+  $p --version
+done
 
 # Yq requires manual retrieval of the package
 echo "Installing yq:$yq_version…"

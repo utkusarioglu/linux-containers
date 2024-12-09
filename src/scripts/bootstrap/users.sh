@@ -2,6 +2,7 @@
 # This script requires a privileged user
 
 set -eux
+bash --version
 
 ARGS=(
   root_pass

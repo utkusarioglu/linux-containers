@@ -33,7 +33,10 @@ RUN ${BOOTSTRAP_ABSPATH}/packages.sh \
 
 USER ${USERNAME}
 
-RUN ${BOOTSTRAP_ABSPATH}/gists.sh
+RUN ${BOOTSTRAP_ABSPATH}/gists.sh ${HOME_ABSPATH}
+
+WORKDIR ${HOME_ABSPATH}
+COPY configs/nvim/init.vim ./.config/nvim/
 
 ENV EDITOR=nvim
 ENTRYPOINT ["/bin/bash"]
