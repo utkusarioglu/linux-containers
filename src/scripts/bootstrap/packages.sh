@@ -9,7 +9,8 @@ apt-get install -y \
   git \
   jq \
   htop \
-  wget
+  wget \
+  tree
 
 # Yq requires manual retrieval of the package
 echo "Installing yq:$yq_version…"

@@ -16,7 +16,7 @@ getent passwd
 echo "root:$root_pass" | chpasswd
 
 userdel -r ${default_user}
-groupdel ${default_group}
+groupdel ${default_group} || true
 
 groupadd -g ${group_id} ${group_name}
 
