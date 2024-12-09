@@ -23,7 +23,7 @@ versioned_packages=(
 )
 
 apt-get update
-apt-get upgrade
+apt-get upgrade -y
 apt-get install -y ${versioned_packages[*]}
 
 for p in ${versioned_packages[@]}; do
