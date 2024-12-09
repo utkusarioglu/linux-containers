@@ -12,6 +12,9 @@ on:
       username: 
         type: string
         required: true
+      group_name: 
+        type: string
+        required: true
       user_id:
         type: string
         required: true
@@ -54,6 +57,7 @@ jobs:
             YQ_VERSION=${{ inputs.yq_version }}
             NVIM_VERSION=${{ inputs.nvim_version }}
             USERNAME=${{ inputs.username }}
+            GROUP_NAME=${{ inputs.group_name }}
             USER_ID=${{ inputs.user_id }}
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}

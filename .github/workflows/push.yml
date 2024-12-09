@@ -10,6 +10,7 @@ jobs:
       yq_version: v4.44.6
       nvim_version: "v0.10.2"
       username: dev
+      username: g
       user_id: "1000"
       group_id: "1000"
     secrets:
