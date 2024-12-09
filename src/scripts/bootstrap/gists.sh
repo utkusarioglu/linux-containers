@@ -1,4 +1,4 @@
-set -eu
+set -eux
 
 base=https://gist.githubusercontent.com/utkusarioglu
 

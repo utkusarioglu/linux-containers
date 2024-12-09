@@ -1,4 +1,4 @@
-set -eu
+set -eux
 
 yq_version="${1:?'Yq version not set'}"
 nvim_version="${2:?'Nvim version not set'}"

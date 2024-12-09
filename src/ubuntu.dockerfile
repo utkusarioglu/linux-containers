@@ -12,6 +12,7 @@ ARG ROOT_PASS
 WORKDIR ${HOME}/bootstrap
 
 COPY scripts/bootstrap/*.sh .
+RUN ls -al
 
 RUN users.sh ${ROOT_PASS} ${USERNAME}
 RUN packages.sh ${YQ_VERSION} ${NVIM_VERSION}
@@ -21,5 +22,4 @@ USER ${USERNAME}
 RUN gists.sh
 
 ENV EDITOR=nvim
-
 ENTRYPOINT ["/bin/bash"]

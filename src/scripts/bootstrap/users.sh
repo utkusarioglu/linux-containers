@@ -1,5 +1,5 @@
 # This script requires a privileged user
-set -eu
+set -eux
 
 root_pass=${1:?'Root pass required as param #1'}
 username=${1:?'Username required as param #2'}
