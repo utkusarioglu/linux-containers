@@ -21,4 +21,4 @@ RUN ${BOOTSTRAP_PATH}/gists.sh
 
 ENV EDITOR=nvim
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
