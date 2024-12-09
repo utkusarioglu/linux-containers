@@ -5,19 +5,20 @@ FROM ubuntu:${OS_TAG}
 ARG YQ_VERSION
 ARG NVIM_VERSION
 ARG USERNAME
-ARG GROUP
+ARG USER_ID
+ARG GROUP_ID
 ARG ROOT_PASS
-ARG BOOTSTRAP_PATH
 
-RUN echo "root:$ROOT_PASS" | chpasswd
+WORKDIR ${HOME}/bootstrap
 
-COPY packages.sh ${BOOTSTRAP_PATH}
-RUN ${BOOTSTRAP_PATH}/packages.sh ${YQ_VERSION} ${NVIM_VERSION}
+COPY bootstrap-scripts/*.sh .
+
+RUN users.sh ${ROOT_PASS} ${USERNAME}
+RUN packages.sh ${YQ_VERSION} ${NVIM_VERSION}
 
 USER ${USERNAME}
 
-COPY gists.sh ${BOOTSTRAP_PATH}
-RUN ${BOOTSTRAP_PATH}/gists.sh
+RUN gists.sh
 
 ENV EDITOR=nvim
 

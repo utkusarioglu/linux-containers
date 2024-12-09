@@ -3,9 +3,6 @@
 on:
   workflow_call:
     inputs: 
-      # os_tag:
-      #   type: string
-      #   required: true
       yq_version: 
         type: string
         required: true
@@ -15,18 +12,18 @@ on:
       username: 
         type: string
         required: true
-      group: 
+      user_id:
+        type: string
+        required: true
+      group_id: 
         type: string
         required: true
     secrets:
       root_pass:
-        # type: string
         required: true
       dockerhub_username: 
-        # type: string
         required: true
       dockerhub_token: 
-        # type: string
         required: true
   
 jobs:
@@ -57,7 +54,7 @@ jobs:
             YQ_VERSION=${{ inputs.yq_version }}
             NVIM_VERSION=${{ inputs.nvim_version }}
             USERNAME=${{ inputs.username }}
-            GROUP=${{ inputs.group }}
+            USER_ID=${{ inputs.user_id }}
+            GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
-            BOOTSTRAP_PATH=${{ inputs.bootstrap_path }}
         
