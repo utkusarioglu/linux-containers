@@ -9,4 +9,4 @@ echo "root:$root_pass" | chpasswd
 
 mv /home/${default_user} /home/${username}
 usermod -l ${username} ${default_user}
-usermod -d /home/${username} -m ${username}
+# usermod -d /home/${username} -m ${username}
