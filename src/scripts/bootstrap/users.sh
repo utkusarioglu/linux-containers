@@ -11,7 +11,7 @@ home_path="/home/${username}"
 echo "root:$root_pass" | chpasswd
 
 userdel -r ${default_user}
-useradd -m -u ${user_id} -s -g ${group_id} /bin/bash ${username}
+useradd -m -u ${user_id} -g ${group_id} -s /bin/bash ${username}
 mkdir -p ${home_path}
 chown -R ${user_id}:${group_id} ${home_path}
 
