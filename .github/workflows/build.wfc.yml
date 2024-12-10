@@ -65,6 +65,7 @@ jobs:
 
       - uses: utkusarioglu/devcontainer-build@main
         with:
+          docker_context: src
           docker_hub_username: ${{ secrets.dockerhub_username }}
           docker_hub_token: ${{ secrets.dockerhub_token }}
           image_name: utkusarioglu/bash-devcontainer
@@ -80,6 +81,6 @@ jobs:
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
           devcontainer_subfolder: src
-          devcontainer_run_cmd_path: src/scripts/bootstrap/devcontainer-check.sh
+          devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-check.sh
           docker_hub_repo_short_description: Ubuntu bash devcontainer
           docker_hub_repo_readme_file_path: src/DOCKER_README.md
