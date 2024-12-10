@@ -7,6 +7,8 @@ set -eux
 bash --version
 
 ARGS=(
+  user_id
+  group_id
   home_abspath
   yq_version
   nvim_version
@@ -40,3 +42,4 @@ nvim --version
 elam_path=${home_abspath}/elam
 git clone --depth 1 https://github.com/utkusarioglu/elam.git $elam_path
 echo "alias elam=$elam_path/elam.sh" >> ${home_abspath}/.bash_aliases
+chown -R 
