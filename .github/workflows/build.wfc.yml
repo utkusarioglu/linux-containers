@@ -63,13 +63,12 @@ jobs:
       #       GROUP_ID=${{ inputs.group_id }}
       #       ROOT_PASS=${{ secrets.root_pass }}
 
-
       - uses: utkusarioglu/devcontainer-build@main
         with:
           docker_context: src
           dockerhub_username: ${{ secrets.dockerhub_username }}
           dockerhub_token: ${{ secrets.dockerhub_token }}
-          image_name: utkusarioglu/bash-devcontainer
+          image_name: bash-devcontainer
           image_tag: latest
           dockerfile_path: src/ubuntu.dockerfile
           build_args: |
