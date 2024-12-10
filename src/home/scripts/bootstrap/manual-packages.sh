@@ -7,11 +7,11 @@ set -eux
 bash --version
 
 ARGS=(
-  user_id
-  group_id
+  # user_id
+  # group_id
   yq_version
   nvim_version
-  home_abspath
+  # home_abspath
 )
 
 . ${0%/*}/args.sh
@@ -62,11 +62,11 @@ echo 'Following path should be clear of nvim files:'
 ls -al
 nvim --version
 
-# VScode folders that need to exist
-for suffix in "" "-insiders"; do
-  abspath=${home_abspath}/.vscode-server${suffix}/extensions
-  mkdir -p $abspath
-  chown ${user_id}:${group_id} $abspath
-done
+# # VScode folders that need to exist
+# for suffix in "" "-insiders"; do
+#   abspath=${home_abspath}/.vscode-server${suffix}/extensions
+#   mkdir -p $abspath
+#   chown ${user_id}:${group_id} $abspath
+# done
 
-ls -al ${home_abspath}
+# ls -al ${home_abspath}
