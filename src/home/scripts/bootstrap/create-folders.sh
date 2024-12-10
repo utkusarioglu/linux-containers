@@ -16,10 +16,12 @@ ARGS=(
 . ${0%/*}/parse-args.sh
 
 # VScode folders that need to exist
+echo "Creating VScode folders"
 for suffix in "" "-insiders"; do
   abspath=${home_abspath}/.vscode-server${suffix}/extensions
+  echo "Creating: $abspath"
   mkdir -p $abspath
-  chown -R ${user_id}:${group_id} $abspath
+  chown ${user_id}:${group_id} $abspath
 done
 
 ls -al ${home_abspath}
