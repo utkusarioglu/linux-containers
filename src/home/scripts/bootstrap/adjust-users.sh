@@ -5,12 +5,12 @@ set -eux
 bash --version
 
 ARGS=(
-  root_pass
-  username
-  group_name
   user_id
   group_id
   home_abspath
+  root_pass
+  username
+  group_name
 )
 
 . ${0%/*}/parse-args.sh

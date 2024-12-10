@@ -26,16 +26,18 @@ RUN ${BOOTSTRAP_ABSPATH}/set-permissions.sh \
   ${HOME_ABSPATH}
 
 RUN ${BOOTSTRAP_ABSPATH}/adjust-users.sh \
-  ${ROOT_PASS} \
-  ${USERNAME} \
-  ${GROUP_NAME} \
   ${USER_ID} \
   ${GROUP_ID} \
-  ${HOME_ABSPATH}
+  ${HOME_ABSPATH} \
+  ${ROOT_PASS} \
+  ${USERNAME} \
+  ${GROUP_NAME}
 
 RUN ${BOOTSTRAP_ABSPATH}/apt-packages.sh
 
 RUN ${BOOTSTRAP_ABSPATH}/manual-packages.sh \
+  ${USER_ID} \
+  ${GROUP_ID} \
   ${HOME_ABSPATH} \
   ${YQ_VERSION} \
   ${NVIM_VERSION}

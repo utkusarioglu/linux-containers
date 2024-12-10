@@ -12,6 +12,7 @@ apt_packages=(
   htop 
   wget 
   tree
+  bats
 )
 
 apt-get update
