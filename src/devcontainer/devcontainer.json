@@ -1,0 +1,6 @@
+{
+  "image": "${localEnv:IMAGE_NAME}:${localEnv:IMAGE_TAG}",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  }
+}

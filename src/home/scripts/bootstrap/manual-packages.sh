@@ -19,7 +19,8 @@ ARGS=(
 # Yq requires manual retrieval of the package
 echo "Installing yq:$yq_version…"
 wget https://github.com/mikefarah/yq/releases/download/$yq_version/yq_linux_amd64 \
-  -O /usr/bin/yq
+  -O /usr/bin/yq \
+  -q
 chmod +x /usr/bin/yq
 yq --version
 
@@ -29,7 +30,8 @@ echo "Installing neovim:$nvim_version…"
 nvim_path=/usr/bin
 nvim_gz_path=./nvim.tar.gz
 wget https://github.com/neovim/neovim/releases/download/$nvim_version/nvim-linux64.tar.gz \
-  -O ${nvim_gz_path}
+  -O ${nvim_gz_path} \
+  -q
 mkdir -p ${nvim_path}
 tar -xzvf nvim.tar.gz
 mv ./nvim-linux64/bin/nvim $nvim_path/nvim

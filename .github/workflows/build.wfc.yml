@@ -46,13 +46,31 @@ jobs:
         with:
           username: ${{ secrets.dockerhub_username }}
           password: ${{ secrets.dockerhub_token }}
-      - uses: docker/build-push-action@v5
+
+      # - uses: docker/build-push-action@v5
+      #   with:
+      #     push: true
+      #     tags: utkusarioglu/bash-devcontainer:latest
+      #     file: src/ubuntu.dockerfile
+      #     context: src
+      #     build-args: |
+      #       OS_TAG=${{ matrix.os_tag }}
+      #       YQ_VERSION=${{ inputs.yq_version }}
+      #       NVIM_VERSION=${{ inputs.nvim_version }}
+      #       USERNAME=${{ inputs.username }}
+      #       GROUP_NAME=${{ inputs.group_name }}
+      #       USER_ID=${{ inputs.user_id }}
+      #       GROUP_ID=${{ inputs.group_id }}
+      #       ROOT_PASS=${{ secrets.root_pass }}
+
+      - uses: utkusarioglu/devcontainer-build@main
         with:
-          push: true
-          tags: utkusarioglu/bash-devcontainer:latest
-          file: src/ubuntu.dockerfile
-          context: src
-          build-args: |
+          docker_hub_username: ${{ secrets.dockerhub_username }}
+          docker_hub_token: ${{ secrets.dockerhub_token }}
+          image_name: utkusarioglu/bash-devcontainer
+          image_tag: latest
+          dockerfile_path: src/ubuntu.dockerfile
+          build_args: |
             OS_TAG=${{ matrix.os_tag }}
             YQ_VERSION=${{ inputs.yq_version }}
             NVIM_VERSION=${{ inputs.nvim_version }}
@@ -61,4 +79,7 @@ jobs:
             USER_ID=${{ inputs.user_id }}
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
-        
+          devcontainer_subfolder: src/devcontainer
+          devcontainer_run_cmd_path: src/scripts/bootstrap/devcontainer-check.sh
+          docker_hub_repo_short_description: Ubuntu bash devcontainer
+          docker_hub_repo_readme_file_path: src/DOCKER_README.md
