@@ -29,8 +29,8 @@ apt-get upgrade -y
 apt-get install -y ${versioned_packages[*]}
 apt-get clean
 apt-get autoremove --purge
-du -sh /var/cache/apt /var/lib/apt/lists
 rm -rf /var/log/apt/*
+du -sh /var/cache/apt /var/lib/apt/lists
 
 for p in ${versioned_packages[@]}; do
   $p --version
