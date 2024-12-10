@@ -79,7 +79,7 @@ jobs:
             USER_ID=${{ inputs.user_id }}
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
-          devcontainer_subfolder: src/devcontainer
+          devcontainer_subfolder: src
           devcontainer_run_cmd_path: src/scripts/bootstrap/devcontainer-check.sh
           docker_hub_repo_short_description: Ubuntu bash devcontainer
           docker_hub_repo_readme_file_path: src/DOCKER_README.md
