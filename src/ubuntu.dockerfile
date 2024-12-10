@@ -33,11 +33,15 @@ RUN ${BOOTSTRAP_ABSPATH}/users.sh \
   ${GROUP_ID} \
   ${HOME_ABSPATH}
 
-RUN ${BOOTSTRAP_ABSPATH}/packages.sh \
+RUN ${BOOTSTRAP_ABSPATH}/apt-packages.sh
+
+RUN ${BOOTSTRAP_ABSPATH}/manual-packages.sh \
+  ${YQ_VERSION} \
+  ${NVIM_VERSION}
+
+RUN ${BOOTSTRAP_ABSPATH}/folders.sh \
   ${USER_ID} \
   ${GROUP_ID} \
-  ${YQ_VERSION} \
-  ${NVIM_VERSION} \
   ${HOME_ABSPATH}
 
 USER ${USERNAME}

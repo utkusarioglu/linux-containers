@@ -16,25 +16,29 @@ ARGS=(
 
 . ${0%/*}/args.sh
 
-versioned_packages=(
-  git 
-  jq 
-  htop 
-  wget 
-  tree
-)
+# versioned_packages=(
+#   git 
+#   jq 
+#   htop 
+#   wget 
+#   tree
+# )
 
-apt-get update
-apt-get upgrade -y
-apt-get install -y ${versioned_packages[*]}
-apt-get clean
-apt-get autoremove --purge
-rm -rf /var/log/apt/*
-du -sh /var/cache/apt /var/lib/apt/lists
+# apt-get update
+# apt-get upgrade -y
+# apt-get install -y ${versioned_packages[*]}
+# apt-get clean
+# apt-get autoremove --purge
+# rm -rf /var/log/apt/*
+# du -sh /var/cache/apt /var/lib/apt/lists
 
-for p in ${versioned_packages[@]}; do
-  $p --version
-done
+# for p in ${versioned_packages[@]}; do
+#   if [ -z $(which $p) ]; then
+#     echo "Error: package $p not found"
+#     exit 1
+#   fi
+#   $p --version
+# done
 
 # Yq requires manual retrieval of the package
 echo "Installing yq:$yq_version…"
