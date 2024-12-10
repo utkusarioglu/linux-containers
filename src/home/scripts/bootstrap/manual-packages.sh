@@ -7,38 +7,12 @@ set -eux
 bash --version
 
 ARGS=(
-  # user_id
-  # group_id
+  home_abspath
   yq_version
   nvim_version
-  # home_abspath
 )
 
-. ${0%/*}/args.sh
-
-# versioned_packages=(
-#   git 
-#   jq 
-#   htop 
-#   wget 
-#   tree
-# )
-
-# apt-get update
-# apt-get upgrade -y
-# apt-get install -y ${versioned_packages[*]}
-# apt-get clean
-# apt-get autoremove --purge
-# rm -rf /var/log/apt/*
-# du -sh /var/cache/apt /var/lib/apt/lists
-
-# for p in ${versioned_packages[@]}; do
-#   if [ -z $(which $p) ]; then
-#     echo "Error: package $p not found"
-#     exit 1
-#   fi
-#   $p --version
-# done
+. ${0%/*}/parse-args.sh
 
 # Yq requires manual retrieval of the package
 echo "Installing yq:$yq_version…"
@@ -62,11 +36,7 @@ echo 'Following path should be clear of nvim files:'
 ls -al
 nvim --version
 
-# # VScode folders that need to exist
-# for suffix in "" "-insiders"; do
-#   abspath=${home_abspath}/.vscode-server${suffix}/extensions
-#   mkdir -p $abspath
-#   chown ${user_id}:${group_id} $abspath
-# done
-
-# ls -al ${home_abspath}
+# Elam
+elam_path=${home_abspath}/elam
+git clone --depth 1 https://github.com/utkusarioglu/elam.git $elam_path
+echo "alias elam=$elam_path/elam.sh" >> ${home_abspath}/.bash_aliases

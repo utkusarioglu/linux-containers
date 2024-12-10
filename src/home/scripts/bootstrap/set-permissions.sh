@@ -11,10 +11,12 @@ ARGS=(
   home_abspath
 )
 
-. ${0%/*}/args.sh
+. ${0%/*}/parse-args.sh
 
 ls -alR ${home_abspath}
 
+# Assigns the default user created by the script as the owner 
+# of home directory files
 chown -R ${user_id}:${group_id} ${home_abspath}/*
 
 ls -alR ${home_abspath}

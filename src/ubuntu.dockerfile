@@ -20,12 +20,12 @@ COPY home .
 
 RUN ls -al ${HOME_ABSPATH}
 
-RUN ${BOOTSTRAP_ABSPATH}/permissions.sh \
+RUN ${BOOTSTRAP_ABSPATH}/set-permissions.sh \
   ${USER_ID} \
   ${GROUP_ID} \
   ${HOME_ABSPATH}
 
-RUN ${BOOTSTRAP_ABSPATH}/users.sh \
+RUN ${BOOTSTRAP_ABSPATH}/adjust-users.sh \
   ${ROOT_PASS} \
   ${USERNAME} \
   ${GROUP_NAME} \
@@ -36,17 +36,15 @@ RUN ${BOOTSTRAP_ABSPATH}/users.sh \
 RUN ${BOOTSTRAP_ABSPATH}/apt-packages.sh
 
 RUN ${BOOTSTRAP_ABSPATH}/manual-packages.sh \
+  ${HOME_ABSPATH} \
   ${YQ_VERSION} \
   ${NVIM_VERSION}
 
-RUN ${BOOTSTRAP_ABSPATH}/folders.sh \
+RUN ${BOOTSTRAP_ABSPATH}/create-folders.sh \
   ${USER_ID} \
   ${GROUP_ID} \
   ${HOME_ABSPATH}
 
 USER ${USERNAME}
-
-RUN ${BOOTSTRAP_ABSPATH}/tools.sh ${HOME_ABSPATH}
-
 ENV EDITOR=nvim
 ENTRYPOINT ["bash"]
