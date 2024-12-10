@@ -42,4 +42,4 @@ nvim --version
 elam_path=${home_abspath}/elam
 git clone --depth 1 https://github.com/utkusarioglu/elam.git $elam_path
 echo "alias elam=$elam_path/elam.sh" >> ${home_abspath}/.bash_aliases
-chown -R ${elam_path}
+chown -R ${user_id}:${group_id} ${elam_path}
