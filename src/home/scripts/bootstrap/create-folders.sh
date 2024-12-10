@@ -21,7 +21,7 @@ for suffix in "" "-insiders"; do
   abspath=${home_abspath}/.vscode-server${suffix}/extensions
   echo "Creating: $abspath"
   mkdir -p $abspath
-  chown ${user_id}:${group_id} $abspath
+  chown -R ${user_id}:${group_id} ${abspath%/*}
 done
 
 ls -al ${home_abspath}
