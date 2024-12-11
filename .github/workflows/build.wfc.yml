@@ -61,6 +61,6 @@ jobs:
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
           devcontainer_subfolder: src
-          devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-check.sh
+          devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-base-check.sh
           dockerhub_repo_short_description: ${{ matrix.images.dockerhub_repo_short_description }}
           dockerhub_repo_readme_file_path: src/DOCKER_README.md

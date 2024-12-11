@@ -20,7 +20,7 @@ COPY home .
 
 RUN ls -al ${HOME_ABSPATH}
 
-RUN ${BOOTSTRAP_ABSPATH}/set-permissions.sh \
+RUN ${BOOTSTRAP_ABSPATH}/set-path-permissions.sh \
   ${USER_ID} \
   ${GROUP_ID} \
   ${HOME_ABSPATH}
