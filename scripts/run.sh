@@ -1,5 +1,5 @@
 image_tag="${1:?'Image tag required as param #1'}"
-im=utkusarioglu/bash-devcontainer:$image_tag
+im=utkusarioglu/ubuntu-devcontainer:$image_tag
 
 docker image rm $im
 docker pull $im

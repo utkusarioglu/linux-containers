@@ -41,20 +41,26 @@ jobs:
       matrix:
         images:
           - os_tag: noble
+            image_name: ubuntu-devcontainer
             dockerhub_repo_short_description: Ubuntu bash devcontainer
+            readme_path: src/DOCKER_README.md
+            dockerfile_path: src/ubuntu.dockerfile
+            docker_context: src
+            devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-base-check.sh
+
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
-      - uses: utkusarioglu/devcontainer-build@main
+      - uses: utkusarioglu/devcontainer-build-action@main
         with:
-          docker_context: src
+          docker_context: ${{ matrix.images.docker_context }}
           dockerhub_username: ${{ secrets.dockerhub_username }}
           dockerhub_token: ${{ secrets.dockerhub_token }}
-          image_name: bash-devcontainer
+          image_name: ${{ matrix.images.image_name }}
           image_tag: ${{ inputs.image_tag }}
-          dockerfile_path: src/ubuntu.dockerfile
+          dockerfile_path: ${{ matrix.images.dockerfile_path }}
           build_args: |
             OS_TAG=${{ matrix.images.os_tag }}
             YQ_VERSION=${{ inputs.yq_version }}
@@ -65,6 +71,6 @@ jobs:
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
           devcontainer_subfolder: src
-          devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-base-check.sh
+          devcontainer_run_cmd_path: ${{ matrix.images.devcontainer_run_cmd_path }}
           dockerhub_repo_short_description: ${{ matrix.images.dockerhub_repo_short_description }}
-          dockerhub_repo_readme_file_path: src/DOCKER_README.md
+          dockerhub_repo_readme_file_path: ${{ matrix.images.readme_path }}
