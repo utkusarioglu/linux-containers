@@ -3,6 +3,9 @@
 on:
   workflow_call:
     inputs: 
+      image_tag:
+        type: string
+        required: true
       yq_version: 
         type: string
         required: true
@@ -49,7 +52,7 @@ jobs:
           dockerhub_username: ${{ secrets.dockerhub_username }}
           dockerhub_token: ${{ secrets.dockerhub_token }}
           image_name: bash-devcontainer
-          image_tag: latest
+          image_tag: ${{ inputs.image_tag }}
           dockerfile_path: src/ubuntu.dockerfile
           build_args: |
             OS_TAG=${{ matrix.images.os_tag }}
