@@ -49,4 +49,5 @@ RUN ${BOOTSTRAP_ABSPATH}/create-folders.sh \
 
 USER ${USERNAME}
 ENV EDITOR=nvim
-ENTRYPOINT ["bash"]
+CMD []
+ENTRYPOINT ["/bin/bash"]
