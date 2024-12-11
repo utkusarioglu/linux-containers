@@ -32,6 +32,7 @@ on:
       dockerhub_token: 
         required: true
 
+
 jobs:
   build-container:
     runs-on: ubuntu-24.04
