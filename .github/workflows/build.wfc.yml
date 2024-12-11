@@ -35,8 +35,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os_tag: 
-          - noble
+        images:
+          - os_tag: noble
+            dockerhub_repo_short_description: Ubuntu bash devcontainer
     steps:
       - uses: actions/checkout@v4
         with:
@@ -51,7 +52,7 @@ jobs:
           image_tag: latest
           dockerfile_path: src/ubuntu.dockerfile
           build_args: |
-            OS_TAG=${{ matrix.os_tag }}
+            OS_TAG=${{ matrix.images.os_tag }}
             YQ_VERSION=${{ inputs.yq_version }}
             NVIM_VERSION=${{ inputs.nvim_version }}
             USERNAME=${{ inputs.username }}
@@ -61,5 +62,5 @@ jobs:
             ROOT_PASS=${{ secrets.root_pass }}
           devcontainer_subfolder: src
           devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-check.sh
-          dockerhub_repo_short_description: Ubuntu bash devcontainer
+          dockerhub_repo_short_description: ${{ matrix.images.dockerhub_repo_short_description }}
           dockerhub_repo_readme_file_path: src/DOCKER_README.md
