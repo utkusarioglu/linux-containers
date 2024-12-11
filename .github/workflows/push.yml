@@ -3,6 +3,7 @@ name: Push action
 on: 
   push
 
+
 jobs:
   build:
     uses: ./.github/workflows/build.wfc.yml
