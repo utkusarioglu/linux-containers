@@ -46,7 +46,6 @@ jobs:
         with:
           fetch-depth: 2
 
-
       - uses: utkusarioglu/devcontainer-build@main
         with:
           docker_context: src
