@@ -6,28 +6,25 @@
 set -eux
 bash --version
 
+no_check="false"
+
+if [ $1 == "--no-check" ]; then
+  no_check="true"
+  shift
+fi
+
 ARGS=(
   apt_packages
 )
 
 . ${0%/*}/parse-args.sh
 
-# apt_packages=(
-#   git 
-#   jq 
-#   htop 
-#   wget 
-#   tree
-#   bats
-# )
-
-# apt-get update
-# apt-get upgrade -y
 apt-get install -y ${apt_packages}
-# apt-get clean
-# apt-get autoremove --purge
-# rm -rf /var/log/apt/*
-# du -sh /var/cache/apt /var/lib/apt/lists
+
+if [ ${no_check} == "true" ]; then
+  echo "Warning: No check enabled, exiting without checking"
+  exit 0
+fi
 
 for p in ${apt_packages[@]}; do
   if [ -z $(which $p) ]; then
