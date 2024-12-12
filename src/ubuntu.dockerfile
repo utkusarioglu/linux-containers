@@ -9,6 +9,7 @@ ARG GROUP_NAME
 ARG USER_ID
 ARG GROUP_ID
 ARG ROOT_PASS
+ARG APT_PACKAGES
 
 ARG HOME_ABSPATH=/home/${USERNAME}
 ARG SCRIPTS_ABSPATH=${HOME_ABSPATH}/scripts
@@ -20,12 +21,12 @@ COPY home .
 
 RUN ls -al ${HOME_ABSPATH}
 
-RUN ${BOOTSTRAP_ABSPATH}/set-path-permissions.sh \
+RUN ${BOOTSTRAP_ABSPATH}/linux/set-permissions.sh \
   ${USER_ID} \
   ${GROUP_ID} \
   ${HOME_ABSPATH}
 
-RUN ${BOOTSTRAP_ABSPATH}/adjust-users.sh \
+RUN ${BOOTSTRAP_ABSPATH}/linux/adjust-users.sh \
   ${USER_ID} \
   ${GROUP_ID} \
   ${HOME_ABSPATH} \
@@ -33,16 +34,20 @@ RUN ${BOOTSTRAP_ABSPATH}/adjust-users.sh \
   ${USERNAME} \
   ${GROUP_NAME}
 
-RUN ${BOOTSTRAP_ABSPATH}/apt-packages.sh
+RUN ${BOOTSTRAP_ABSPATH}/linux/update-apt.sh
 
-RUN ${BOOTSTRAP_ABSPATH}/manual-packages.sh \
+RUN ${BOOTSTRAP_ABSPATH}/linux/install-apt.sh "${APT_PACKAGES}"
+
+RUN ${BOOTSTRAP_ABSPATH}/linux/clean-apt.sh
+
+RUN ${BOOTSTRAP_ABSPATH}/linux/install-manual.sh \
   ${USER_ID} \
   ${GROUP_ID} \
   ${HOME_ABSPATH} \
   ${YQ_VERSION} \
   ${NVIM_VERSION}
 
-RUN ${BOOTSTRAP_ABSPATH}/create-folders.sh \
+RUN ${BOOTSTRAP_ABSPATH}/linux/create-folders.sh \
   ${USER_ID} \
   ${GROUP_ID} \
   ${HOME_ABSPATH}

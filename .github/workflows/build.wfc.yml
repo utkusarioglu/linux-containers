@@ -42,11 +42,12 @@ jobs:
         images:
           - os_tag: noble
             image_name: ubuntu-devcontainer
-            dockerhub_repo_short_description: Ubuntu bash devcontainer
-            readme_path: src/DOCKER_README.md
             dockerfile_path: src/ubuntu.dockerfile
             docker_context: src
+            dockerhub_repo_readme_file_path: src/DOCKER_README.md
             devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-base-check.sh
+            devcontainer_subfolder: src
+            apt_packages: git jq htop wget tree bats
 
     steps:
       - uses: actions/checkout@v4
@@ -70,7 +71,8 @@ jobs:
             USER_ID=${{ inputs.user_id }}
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
-          devcontainer_subfolder: src
+            APT_PACKAGES="${{ inputs.apt_packages }}"
+          devcontainer_subfolder: ${{ matrix.images.devcontainer_subfolder }}
           devcontainer_run_cmd_path: ${{ matrix.images.devcontainer_run_cmd_path }}
-          dockerhub_repo_short_description: ${{ matrix.images.dockerhub_repo_short_description }}
-          dockerhub_repo_readme_file_path: ${{ matrix.images.readme_path }}
+          dockerhub_repo_short_description: Ubuntu devcontainers
+          dockerhub_repo_readme_file_path: ${{ matrix.images.dockerhub_repo_readme_file_path }}
