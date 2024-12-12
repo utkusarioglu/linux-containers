@@ -71,7 +71,7 @@ jobs:
             USER_ID=${{ inputs.user_id }}
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
-            APT_PACKAGES="${{ matrix.images.apt_packages }}"
+            APT_PACKAGES=${{ matrix.images.apt_packages }}
           devcontainer_subfolder: ${{ matrix.images.devcontainer_subfolder }}
           devcontainer_run_cmd_path: ${{ matrix.images.devcontainer_run_cmd_path }}
           dockerhub_repo_short_description: Ubuntu devcontainers
