@@ -6,9 +6,9 @@
 set -eux
 bash --version
 
-ARGS={
+ARGS=(
   apt_packages
-}
+)
 
 . ${0%/*}/parse-args.sh
 
