@@ -48,6 +48,7 @@ jobs:
             devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-base-check.sh
             devcontainer_subfolder: src
             apt_packages: git jq htop wget tree bats
+            apt_packages_silent: software-properties-common
 
     steps:
       - uses: actions/checkout@v4
@@ -72,6 +73,7 @@ jobs:
             GROUP_ID=${{ inputs.group_id }}
             ROOT_PASS=${{ secrets.root_pass }}
             APT_PACKAGES=${{ matrix.images.apt_packages }}
+            APT_PACKAGES_SILENT=${{ matrix.images.apt_packages_silent }}
           devcontainer_subfolder: ${{ matrix.images.devcontainer_subfolder }}
           devcontainer_run_cmd_path: ${{ matrix.images.devcontainer_run_cmd_path }}
           dockerhub_repo_short_description: Ubuntu devcontainers

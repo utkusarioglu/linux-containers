@@ -10,6 +10,7 @@ ARG USER_ID
 ARG GROUP_ID
 ARG ROOT_PASS
 ARG APT_PACKAGES
+ARG APT_PACKAGES_SILENT
 
 ARG HOME_ABSPATH=/home/${USERNAME}
 ARG SCRIPTS_ABSPATH=${HOME_ABSPATH}/scripts
@@ -37,6 +38,8 @@ RUN ${BOOTSTRAP_ABSPATH}/linux/adjust-users.sh \
 RUN ${BOOTSTRAP_ABSPATH}/linux/update-apt.sh
 
 RUN ${BOOTSTRAP_ABSPATH}/linux/install-apt.sh "${APT_PACKAGES}"
+
+RUN ${BOOTSTRAP_ABSPATH}/linux/install-apt.sh --no-check "${APT_PACKAGES_SILENT}"
 
 RUN ${BOOTSTRAP_ABSPATH}/linux/clean-apt.sh
 
