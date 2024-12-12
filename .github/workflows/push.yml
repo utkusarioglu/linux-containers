@@ -8,7 +8,7 @@ jobs:
   build:
     uses: ./.github/workflows/build.wfc.yml
     with:
-      image_tag: noble-test-7
+      image_tag: noble-test-8
       yq_version: v4.44.6
       nvim_version: "v0.10.2"
       username: dev
