@@ -34,7 +34,7 @@ wget https://github.com/neovim/neovim/releases/download/$nvim_version/nvim-linux
   -q
 mkdir -p ${nvim_path}
 tar -xzf nvim.tar.gz
-mv ./nvim-linux64/bin/nvim $nvim_path/nvim
+rsync -av ./nvim-linux64/ /usr/
 rm -rf ${nvim_gz_path} ./nvim-linux64
 echo 'Following path should be clear of nvim files:'
 ls -al
