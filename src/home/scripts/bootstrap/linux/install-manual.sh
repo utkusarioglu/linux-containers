@@ -40,6 +40,13 @@ echo 'Following path should be clear of nvim files:'
 ls -al
 nvim --version
 
+#Bats core
+git clone https://github.com/bats-core/bats-core.git
+cd bats-core
+./install.sh /usr/local
+cd ..
+rm -rf bats-core
+
 # Elam
 elam_path=${home_abspath}/elam
 git clone --depth 1 https://github.com/utkusarioglu/elam.git $elam_path
