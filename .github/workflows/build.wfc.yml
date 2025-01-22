@@ -47,8 +47,8 @@ jobs:
             dockerhub_repo_readme_file_path: src/DOCKER_README.md
             devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/devcontainer-base-check.sh
             devcontainer_subfolder: src
-            apt_packages: git jq htop wget tree rsync
-            apt_packages_silent: software-properties-common
+            apt_packages: git jq htop wget tree rsync zip less curl
+            apt_packages_silent: software-properties-common unzip
             yq_version: ${{ inputs.yq_version }}
             nvim_version: ${{ inputs.nvim_version }}
             username: ${{ inputs.username }}
