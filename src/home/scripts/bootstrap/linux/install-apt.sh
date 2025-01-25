@@ -22,7 +22,8 @@ ARGS=(
   apt_packages
 )
 
-. ${0%/*}/parse-args.sh
+# . ${0%/*}/parse-args.sh
+. /home/dev/scripts/util/parse-args.sh
 
 apt-get install -y ${apt_packages}
 

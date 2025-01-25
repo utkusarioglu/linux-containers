@@ -13,7 +13,8 @@ ARGS=(
   home_abspath
 )
 
-. ${0%/*}/parse-args.sh
+# . ${0%/*}/parse-args.sh
+. /home/dev/scripts/util/parse-args.sh
 
 # VScode folders that need to exist
 echo "Creating VScode folders"
