@@ -12,9 +12,7 @@ ARGS=(
   username
   group_name
 )
-
-# . ${0%/*}/parse-args.sh
-. /home/dev/scripts/util/parse-args.sh
+. /home/dev/scripts/utils/parse-args.sh
 
 getent group
 getent passwd

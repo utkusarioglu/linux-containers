@@ -10,9 +10,7 @@ ARGS=(
   group_id
   home_abspath
 )
-
-# . ${0%/*}/parse-args.sh
-. /home/dev/scripts/util/parse-args.sh
+. /home/dev/scripts/utils/parse-args.sh
 
 ls -alR ${home_abspath}
 

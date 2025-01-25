@@ -13,9 +13,7 @@ ARGS=(
   yq_version
   nvim_version
 )
-
-# . ${0%/*}/parse-args.sh
-. /home/dev/scripts/util/parse-args.sh
+. /home/dev/scripts/utils/parse-args.sh
 
 # Yq requires manual retrieval of the package
 echo "Installing yq:$yq_version…"
