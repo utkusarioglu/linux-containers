@@ -23,6 +23,11 @@ apt-get autoremove --purge
 rm -rf /var/log/apt/*
 du -sh /var/cache/apt /var/lib/apt/lists
 
+dpkg --get-selections \
+  | grep deinstall \
+  | awk '{ print $1 }' \
+  | xargs dpkg --purge
+
 # for p in ${apt_packages[@]}; do
 #   if [ -z $(which $p) ]; then
 #     echo "Error: package $p not found"
