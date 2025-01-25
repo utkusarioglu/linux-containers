@@ -26,7 +26,8 @@ du -sh /var/cache/apt /var/lib/apt/lists
 dpkg --get-selections \
   | grep deinstall \
   | awk '{ print $1 }' \
-  | xargs dpkg --purge
+  | xargs dpkg --purge \
+  || true
 
 # for p in ${apt_packages[@]}; do
 #   if [ -z $(which $p) ]; then
