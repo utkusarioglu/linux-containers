@@ -1,7 +1,8 @@
 #!/bin/bash
+
 # This script requires a privileged user
 
-set -eux
+set -euxo pipefail
 bash --version
 
 ARGS=(

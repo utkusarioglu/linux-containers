@@ -4,7 +4,7 @@
 # Creates folders that need to exist for the container to function
 # as expected
 
-set -eux
+set -euxo pipefail
 bash --version
 
 ARGS=(

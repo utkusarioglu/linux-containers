@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# @purpose
 # Creates an "*.example" file for the given ".env" by stripping out
 # the values and the comments.
 

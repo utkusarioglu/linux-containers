@@ -3,7 +3,8 @@
 # @purpose
 # Adjusts permissions
 
-set -eux
+set -euxo pipefail
+bash --version
 
 ARGS=(
   user_id

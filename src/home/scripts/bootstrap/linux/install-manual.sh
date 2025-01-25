@@ -3,7 +3,7 @@
 # @purpose
 # Installs packages from apt and manual sources
 
-set -eux
+set -euxo pipefail
 bash --version
 
 ARGS=(

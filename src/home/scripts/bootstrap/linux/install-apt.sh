@@ -3,7 +3,7 @@
 # @purpose
 # Installs packages from apt 
 
-set -eux
+set -euxo pipefail
 bash --version
 
 no_check="false"
