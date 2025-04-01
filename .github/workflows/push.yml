@@ -7,9 +7,9 @@ jobs:
   build:
     uses: ./.github/workflows/build.wfc.yml
     with:
-      image_tag: 2404-test-15
+      image_tag: 2404-test-16
       yq_version: v4.45.1
-      nvim_version: v0.10.3
+      nvim_version: v0.11.0
       username: dev
       group_name: g
       user_id: "1000"
