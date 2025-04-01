@@ -28,7 +28,7 @@ yq --version
 echo "Installing neovim:$nvim_version…"
 nvim_path=/usr/bin
 nvim_gz_path=./nvim.tar.gz
-wget https://github.com/neovim/neovim/releases/download/$nvim_version/nvim-linux64.tar.gz \
+wget https://github.com/neovim/neovim/releases/download/$nvim_version/nvim-linux-x86_64.tar.gz \
   -O ${nvim_gz_path} \
   -q
 mkdir -p ${nvim_path}
