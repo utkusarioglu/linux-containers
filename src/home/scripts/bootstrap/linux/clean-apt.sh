@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # @purpose
-# Installs packages from apt 
+# Does apt and dpkg related cleaning on the system
 
 set -euxo pipefail
 bash --version
@@ -11,6 +11,10 @@ apt-get clean
 apt-get autoremove --purge
 
 rm -rf /var/log/apt/*
+
+du -sh /var/cache/apt /var/lib/apt/lists
+
+rm -rf /var/lib/apt/lists/*
 
 du -sh /var/cache/apt /var/lib/apt/lists
 

@@ -3,13 +3,24 @@ name: Push action
 on: 
   push
 
+concurrency:
+  cancel-in-progress: true
+  group: push
+
 jobs:
   build:
     uses: ./.github/workflows/build.wfc.yml
     with:
-      image_tag: 2404-test-16
-      yq_version: v4.45.1
-      nvim_version: v0.11.0
+      image_tag: 2510-test-18
+      
+      # https://github.com/mikefarah/yq/releases
+      # yq_version: v4.45.1
+      yq_version: v4.45.4
+
+      # https://github.com/neovim/neovim/releases
+      # nvim_version: v0.11.0
+      nvim_version: v0.11.2
+
       username: dev
       group_name: g
       user_id: "1000"
