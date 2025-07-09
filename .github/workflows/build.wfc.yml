@@ -41,8 +41,7 @@ jobs:
       matrix:
         images:
           # https://hub.docker.com/_/ubuntu
-          # os_tag: noble
-          - os_tag: "25.04"
+          - os_tag: "24.04"
             image_name: ubuntu-devcontainer
             dockerfile_path: src/ubuntu.dockerfile
             docker_context: src
