@@ -14,10 +14,6 @@ rm -rf /var/log/apt/*
 
 du -sh /var/cache/apt /var/lib/apt/lists
 
-rm -rf /var/lib/apt/lists/*
-
-du -sh /var/cache/apt /var/lib/apt/lists
-
 dpkg --get-selections \
   | grep deinstall \
   | awk '{ print $1 }' \
