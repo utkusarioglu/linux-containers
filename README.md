@@ -1,3 +1,3 @@
 # Bash Devcontainer
 
-Bash Devcontainer as the base for other devcontainers
+Bash Devcontainer for standalone dev and as base for other devcontainers
