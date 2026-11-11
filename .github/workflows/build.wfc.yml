@@ -60,7 +60,7 @@ jobs:
             apt_packages_silent: software-properties-common unzip
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2
 
