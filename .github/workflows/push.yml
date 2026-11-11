@@ -11,15 +11,15 @@ jobs:
   build:
     uses: ./.github/workflows/build.wfc.yml
     with:
-      image_tag: 2404-test-21
+      image_tag: 2404-test-22
       
       # https://github.com/mikefarah/yq/releases
       # yq_version: v4.45.1
-      yq_version: v4.45.4
+      yq_version: v4.54.3
 
       # https://github.com/neovim/neovim/releases
       # nvim_version: v0.11.0
-      nvim_version: v0.11.2
+      nvim_version: v0.12.6
 
       username: dev
       group_name: g

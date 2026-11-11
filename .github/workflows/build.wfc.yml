@@ -37,7 +37,7 @@ jobs:
   build-container:
     runs-on: ubuntu-24.04
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         images:
           # https://hub.docker.com/_/ubuntu
@@ -56,7 +56,7 @@ jobs:
             user_id: ${{ inputs.user_id }}
             group_id: ${{ inputs.group_id }}
             image_tag: ${{ inputs.image_tag }}
-            apt_packages: git jq htop wget tree rsync zip less curl
+            apt_packages: git jq htop wget tree rsync zip less curl ripgrep
             apt_packages_silent: software-properties-common unzip
 
     steps:
