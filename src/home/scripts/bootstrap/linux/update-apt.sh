@@ -6,7 +6,13 @@
 set -euxo pipefail
 bash --version
 
-add-apt-repository -y universe
+SOURCES=/etc/apt/sources.list.d/ubuntu.sources
 
-apt-get update
+sed -i '/^Components:/ {
+    /universe/! s/$/ universe/
+}' "$SOURCES"
+
+apt-get update -o APT::Update::Error-Mode=any
+
+# apt-get update
 apt-get upgrade -y
