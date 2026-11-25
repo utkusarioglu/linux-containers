@@ -56,8 +56,8 @@ jobs:
             user_id: ${{ inputs.user_id }}
             group_id: ${{ inputs.group_id }}
             image_tag: ${{ inputs.image_tag }}
-            apt_packages: git jq htop wget tree rsync zip less curl ripgrep
-            apt_packages_silent: software-properties-common unzip
+            apt_packages: git jq htop wget tree rsync zip less curl 
+            apt_packages_silent: software-properties-common unzip ripgrep
 
     steps:
       - uses: actions/checkout@v7
