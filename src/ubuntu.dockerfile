@@ -1,4 +1,4 @@
-ARG OS_TAG
+ARG OS_TAG = "latest"
 
 FROM ubuntu:${OS_TAG}
 
