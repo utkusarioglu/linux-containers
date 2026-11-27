@@ -39,7 +39,9 @@ RUN ${BOOTSTRAP_ABSPATH}/linux/update-apt.sh
 
 RUN ${BOOTSTRAP_ABSPATH}/linux/install-apt.sh "${APT_PACKAGES}"
 
-RUN ${BOOTSTRAP_ABSPATH}/linux/install-apt.sh --no-check "${APT_PACKAGES_SILENT}"
+RUN ${BOOTSTRAP_ABSPATH}/linux/install-apt.sh \
+  --no-check \
+  "${APT_PACKAGES_SILENT}"
 
 RUN ${BOOTSTRAP_ABSPATH}/linux/clean-apt.sh
 
@@ -56,6 +58,9 @@ RUN ${BOOTSTRAP_ABSPATH}/linux/create-folders.sh \
   ${HOME_ABSPATH}
 
 USER ${USERNAME}
+
 ENV EDITOR=nvim
+ENV LANG=C.UTF8
+
 CMD []
 ENTRYPOINT ["/bin/bash"]
